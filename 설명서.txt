@@ -1,0 +1,11 @@
+<src/main/java>
+- 반드시 com.example.sb 아래에 파일을 두어야 작동함
+
+< src/main/resource 폴더 >
+● static - 이미지 같은 파일 두는 곳
+● templates - thymeleaf 파일을 두는 곳 (html 코드)
+
+● application.properties
+서버와 DB 연결 정보를 두는 곳
+server.port에 서버 정보 (localhost:8090에서 8090 부분) 저장
+#logging.level.root는 로그를 위한 것
