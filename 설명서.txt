@@ -3,9 +3,16 @@
 
 < src/main/resource 폴더 >
 ● static - 이미지 같은 파일 두는 곳
-● templates - thymeleaf 파일을 두는 곳 (html 코드)
+● templates - Thymeleaf 파일을 두는 곳 (html 코드)
 
 ● application.properties
 서버와 DB 연결 정보를 두는 곳
+맨 위에 있는 server.servlet.context-path=/sb 는 /sb로 주소가 시작함을 의미
 server.port에 서버 정보 (localhost:8090에서 8090 부분) 저장
 #logging.level.root는 로그를 위한 것
+
+Thymeleaf 부분은 어디의 Thymeleaf를 불러올지 결정하는데
+prefix에 파일 위치 경로, suffix에 확장자가 들어감
+
+가령 prefix에 classpath:a/b/, suffix에 .html이고
+java 파일 GetMapping으로 c를 리턴하면 a/b/c.html이 실행되는 식
