@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .national { background-color: bisque;}
+        .summer { font-size: large;}
+    </style>
+</head>
+<body style="margin: 50px;">
+    <h1>텍스트 출력 및 태그 속성</h1>
+    <hr>
+    <div th:text="${name}">마리아</div>
+    <div>[[${name}]]님 환영합니다.</div> <!-- 이렇게 해도 name이 작동됨 -->
+    <br>
+
+    <!-- 여러 상황에서 출력되는 거 비교해보기 -->
+    <ul>
+        <li><span th:text="${data}"></span></li>
+        <li><span th:utext="${data}"></span></li> <!-- <b> 반영 -->
+        <li>[[${data}]]</li>
+        <li>[(${data})]</li> <!-- <b> 반영 -->
+    </ul>
+    <br>
+
+    <!-- 클래스 추가하기 -->
+    <ul>
+        <li><span class="national">사과</span></li>
+        <li><span class="national" th:classappend="summer">복숭아</span></li> <!-- class="national summer" 와 동일 -->
+        <li><span class="summer">복숭아</span></li>
+    </ul>
+</body>
+</html>

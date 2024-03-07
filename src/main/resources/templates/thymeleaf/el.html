@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 50px;">
+    <h1>표현언어와 객체</h1>
+    <hr>
+
+    <!-- 객체의 요소를 타임리프에서 다양하게 출력시키기 -->
+    <ul> Object
+        <li>[[${member.mid}]]</li>
+        <li>[[${member['name']}]]</li>
+        <li>[[${member.getAge()}]]</li>
+    </ul>
+    <br>
+
+    <!-- 리스트 출력시키기 -->
+    <ul>
+        <li>[[${memberList[1].mid}]]</li>
+        <li>[[${memberList[1]['name']}]]</li>
+        <li>[[${memberList[1].getAge()}]]</li>
+    </ul>
+    <br>
+
+    <!-- 세션 -->
+    <ul>
+        <li>[[${session.sessUname}]]</li> <!-- 앞에 session을 붙여야 출력 가능 -->
+        <li>[[${session.sessAge}]]</li>
+    </ul>
+    <br>
+
+    <!-- 날짜와 시간을 형식에 맞게 출력시키기 -->
+    <ul> temporals
+        <li>[[${now}]]</li>
+        <li>[[${#temporals.format(now, 'yyyy-MM-dd HH:mm:ss')}]]</li>
+    </ul>
+    <br>
+
+    <!-- String으로 변환시키기 -->
+    <ul> LocalDateTime
+        <li>[[${now}]]</li>
+        <li>[[${#strings.substring(#strings.replace(now, 'T', ' '), 0, 19)}]]</li>
+    </ul>
+    <br>
+</body>
+</html>

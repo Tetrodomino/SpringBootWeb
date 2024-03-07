@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, td {padding: 3px;}
+    </style>
+</head>
+<body style="margin: 50px;">
+    <h1>조건식</h1>
+    <hr>
+
+    <h3>Selection</h3>
+    <span th:if="${num1 % 2 == 0}">num1은 짝수</span> 
+    <span th:if="${num1 % 2 == 1}">num1은 홀수</span> <!-- 이게 출력됨 -->
+    <br>
+    <span th:unless="${num2 % 2 == 0}">num2 홀수</span>
+    <span th:unless="${num2 % 2 == 1}">num2 짝수</span> <!-- 이게 출력됨 -->
+    <hr>
+
+    <!-- 스위치 사용 -->
+    <h3>Switch</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>스위치 결과</th>
+        </tr>
+        <tr th:each="member: ${memberList}">
+            <td>[[${member.mid}]]</td>
+            <td>[[${member.name}]]</td>
+            <td>[[${member.age}]]</td>
+
+            <!-- switch와 case로 스위치를 사용 -->
+            <td th:switch="${member.mid} % 3">
+                <span th:case="0">나머지 0</span>
+                <span th:case="1">나머지 1</span>
+                <span th:case="2">나머지 2</span>
+                <span th:case="*">기타</span> <!-- default-->
+            </td>
+        </tr>
+    </table>
+    <h3>Selection</h3>
+    <span th:if="${num1 % 2 == 0}">num1은 짝수</span> 
+    <span th:if="${num1 % 2 == 1}">num1은 홀수</span> <!-- 이게 출력됨 -->
+    <br>
+    <span th:unless="${num2 % 2 == 0}">num2 홀수</span>
+    <span th:unless="${num2 % 2 == 1}">num2 짝수</span> <!-- 이게 출력됨 -->
+</body>
+</html>
